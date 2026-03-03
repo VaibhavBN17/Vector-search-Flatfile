@@ -10,7 +10,8 @@ def startup_event():
     load_csv_data("url_documents.csv")
     print("CSV vectors loaded")
 
-@app.post("/vector-search")
+# @app.post("/vector-search")
+app.post("/search-url")
 async def vector_search(request: SearchRequest):
     query_vector = generate_embedding(request.text)
     results = search_documents(query_vector)
